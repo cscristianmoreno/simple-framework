@@ -9,7 +9,7 @@ This project include <b>dependencie injection</b> and <b>controllers annotations
 ```html
 <dependencies>
     <dependency>
-      <groupId>com.cmorenoweb</groupId>
+      <groupId>io.github.cscristianmoreno</groupId>
       <artifactId>web</artifactId>
       <version>1.0</version>
     </dependency>

@@ -9,6 +9,7 @@
 
   <groupId>io.github.cscristianmoreno</groupId>
   <artifactId>web</artifactId>
+  <version>1.0</version>
   <name>web</name>
 
   <!-- FIXME change it to the project's website -->
@@ -16,7 +17,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.cmorenoweb</groupId>
+      <groupId>io.github.cscristianmoreno</groupId>
       <artifactId>ioc</artifactId>
       <version>1.0</version>
     </dependency>

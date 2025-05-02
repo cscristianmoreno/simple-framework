@@ -9,6 +9,7 @@
 
   <groupId>io.github.cscristianmoreno</groupId>
   <artifactId>ioc</artifactId>
+  <version>1.0</version>
   <name>ioc</name>
 
   <!-- FIXME change it to the project's website -->
