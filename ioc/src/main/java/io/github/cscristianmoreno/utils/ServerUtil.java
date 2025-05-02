@@ -5,7 +5,6 @@ import java.lang.reflect.Parameter;
 
 import org.apache.catalina.LifecycleException;
 
-import io.github.cscristianmoreno.annotations.Server;
 import io.github.cscristianmoreno.tomcat.TomcatInitializer;
 
 public abstract class ServerUtil {

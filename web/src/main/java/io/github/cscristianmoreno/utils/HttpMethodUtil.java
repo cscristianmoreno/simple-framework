@@ -2,18 +2,12 @@ package io.github.cscristianmoreno.utils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.lang.model.element.AnnotationValue;
-
-import io.github.cscristianmoreno.annotations.servlet.http.GET;
-import io.github.cscristianmoreno.annotations.servlet.http.POST;
+import io.github.cscristianmoreno.dto.AnnotationHttpDTO;
 import io.github.cscristianmoreno.utils.annotations.AnnotationUtil;
 import io.github.cscristianmoreno.utils.paths.PathComodin;
-import io.github.cscristianmoreno.utils.values.PathValueUtil;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 public abstract class HttpMethodUtil {
@@ -34,10 +28,18 @@ public abstract class HttpMethodUtil {
             return m.isAnnotationPresent(annotation);
         })
         .filter((m) -> {
+            /** Get first annotation */
             Annotation getFirstAnnotation = m.getAnnotations()[0];
-            String annotationValue = AnnotationUtil.getAnnotationValue(httpMethod, getFirstAnnotation);
+            
+            /** Get annotation value */
+            AnnotationHttpDTO annotationValue = AnnotationUtil.getAnnotationValue(httpMethod, getFirstAnnotation);
+
+            /** Get path info */
             String pathInfo = request.getPathInfo();
-            Pattern pattern = PathComodin.convert(annotationValue);
+
+            /** Get pattern */
+            Pattern pattern = PathComodin.convert(annotationValue.getValue());
+            
             return pattern.matcher(pathInfo).matches();
         })
         .toList();

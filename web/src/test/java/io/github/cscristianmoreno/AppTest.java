@@ -1,7 +1,5 @@
 package io.github.cscristianmoreno;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -26,18 +24,5 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue() throws URISyntaxException, IOException
     {
-        String env = System.getProperty("user.dir");
-        File fileDirectory = new File(env);
-        
-        System.out.println(fileDirectory.getAbsolutePath());
-
-        Path directory = Paths.get(getClass().getResource("/").toURI()).getParent();
-
-        List<File> paths = Files.walk(Paths.get(directory.resolve("classes/io/github/cscristianmoreno").toUri()))
-        .filter(Files::isRegularFile)
-        .map(Path::toFile)
-        .collect(Collectors.toList());
-
-        
     }
 }

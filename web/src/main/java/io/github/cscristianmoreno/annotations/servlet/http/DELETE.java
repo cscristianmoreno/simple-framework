@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 public @interface DELETE {
     String value() default "";
     
-    String accept() default "";
-
-    String consume() default "";
+    String consume() default "application/json";
+    
+    String produce() default "application/json";
 }

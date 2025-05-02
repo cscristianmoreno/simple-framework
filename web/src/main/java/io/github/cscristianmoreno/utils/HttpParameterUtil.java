@@ -1,13 +1,10 @@
 package io.github.cscristianmoreno.utils;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.codehaus.jackson.map.ObjectMapper;
-
 import io.github.cscristianmoreno.annotations.servlet.methods.Body;
 import io.github.cscristianmoreno.annotations.servlet.methods.Header;
 import io.github.cscristianmoreno.annotations.servlet.methods.Param;

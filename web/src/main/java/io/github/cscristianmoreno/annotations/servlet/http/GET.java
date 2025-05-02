@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 public @interface GET {
     String value() default "";
     
-    String accept() default "";
+    String consume() default "application/json";
 
-    String consume() default "";
+    String produce() default "application/json";
 }

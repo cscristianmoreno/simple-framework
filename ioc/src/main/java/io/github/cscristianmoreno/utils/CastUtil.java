@@ -3,8 +3,6 @@ package io.github.cscristianmoreno.utils;
 import java.util.Map;
 import java.util.function.Function;
 
-import io.github.cscristianmoreno.exceptions.cast.CastException;
-
 public abstract class CastUtil {
     
     public static <T> T cast(Class<?> clazz, String value) {

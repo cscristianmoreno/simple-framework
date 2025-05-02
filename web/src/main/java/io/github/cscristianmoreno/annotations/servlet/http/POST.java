@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 public @interface POST {
     String value() default "";
     
-    String accept() default "";
+    String produce() default "application/json";
 
-    String consume() default "";
+    String consume() default "application/json";
 }

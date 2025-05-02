@@ -1,18 +1,13 @@
 package io.github.cscristianmoreno.servlet;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-import org.apache.catalina.LifecycleException;
-
 import io.github.cscristianmoreno.annotations.IgnoreController;
-import io.github.cscristianmoreno.annotations.Server;
 import io.github.cscristianmoreno.annotations.servlet.Controller;
 import io.github.cscristianmoreno.utils.MessageUtil;
-import io.github.cscristianmoreno.utils.ServerUtil;
 import jakarta.servlet.ServletContainerInitializer;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;

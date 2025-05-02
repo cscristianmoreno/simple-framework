@@ -10,6 +10,7 @@ import io.github.cscristianmoreno.annotations.servlet.http.GET;
 import io.github.cscristianmoreno.annotations.servlet.http.PATCH;
 import io.github.cscristianmoreno.annotations.servlet.http.POST;
 import io.github.cscristianmoreno.annotations.servlet.http.PUT;
+import io.github.cscristianmoreno.dto.AnnotationHttpDTO;
 
 public abstract class AnnotationUtil {
     
@@ -25,13 +26,45 @@ public abstract class AnnotationUtil {
         return (Class<? extends Annotation>) mapList.get(annotation);
     }
 
-    public static String getAnnotationValue(String method, Annotation annotation) {
-        Map<String, Function<Annotation, String>> map = Map.of(
-            "GET", a -> ((GET) a).value(),
-            "POST", a -> ((POST) a).value(),
-            "PUT", a -> ((PUT) a).value(),
-            "PATCH", a -> ((PATCH) a).value(),
-            "DELETE", a -> ((DELETE) a).value()
+    public static AnnotationHttpDTO getAnnotationValue(String method, Annotation annotation) {
+        AnnotationHttpDTO annotationHttpDTO = new AnnotationHttpDTO();
+
+        Map<String, Function<Annotation, AnnotationHttpDTO>> map = Map.of(
+            "GET", a -> {
+                GET anno = (GET) a;
+                annotationHttpDTO.setValue(anno.value());
+                annotationHttpDTO.setProduce(anno.produce());
+                annotationHttpDTO.setConsume(anno.consume());
+                return annotationHttpDTO;
+            },
+            "POST", a -> {
+                POST anno = (POST) a;
+                annotationHttpDTO.setValue(anno.value());
+                annotationHttpDTO.setProduce(anno.produce());
+                annotationHttpDTO.setConsume(anno.consume());
+                return annotationHttpDTO;
+            },
+            "PUT", a -> {
+                PUT anno = (PUT) a;
+                annotationHttpDTO.setValue(anno.value());
+                annotationHttpDTO.setProduce(anno.produce());
+                annotationHttpDTO.setConsume(anno.consume());
+                return annotationHttpDTO;
+            },
+            "PATCH", a -> {
+                PATCH anno = (PATCH) a;
+                annotationHttpDTO.setValue(anno.value());
+                annotationHttpDTO.setProduce(anno.produce());
+                annotationHttpDTO.setConsume(anno.consume());
+                return annotationHttpDTO;
+            },
+            "DELETE", a -> {
+                DELETE anno = (DELETE) a;
+                annotationHttpDTO.setValue(anno.value());
+                annotationHttpDTO.setProduce(anno.produce());
+                annotationHttpDTO.setConsume(anno.consume());
+                return annotationHttpDTO;
+            }
         );
 
         return map.get(method).apply(annotation);
